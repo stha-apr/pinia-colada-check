@@ -25,7 +25,7 @@
         style="max-width: 300px;"
       />
       <q-btn
-        @click="mutate"
+        @click="mutate()"
         :disable="isSaving"
         :loading="isSaving"
         label="Add"
@@ -39,7 +39,7 @@ import { useTodos } from '@/queries/todos.ts'
 import { ref } from 'vue'
 import { useMutation, useQueryCache } from '@pinia/colada'
 const queryCache = useQueryCache()
-const { data, isLoading, error, refetch } = useTodos()
+const { data, isLoading, error } = useTodos()
 
 const todoText = ref<string>('')
 
