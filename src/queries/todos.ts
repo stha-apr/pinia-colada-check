@@ -1,31 +1,38 @@
-import { defineQuery, useQuery } from '@pinia/colada'
-import { computed } from 'vue'
-import { fromDTO } from '@/queries/todoMapper.ts'
-// export const useTodos = defineQuery({
-//   key: ['todos'],
-//   query: () => fetch('http://localhost:3000/todos').then((res) => res.json())
-// })
+import { defineQuery } from '@pinia/colada'
 
-
-export const useTodos = defineQuery(() => {
-  const { state, data, ...rest } = useQuery({
-    key: ['todos'],
-    query: () => fetch('http://localhost:3000/todos').then((res) => res.json())
-  })
-
-  const fancyData = computed(() => {
-    if (!data.value) return null
-    return data.value.map(el => fromDTO(el))
-  })
-
-  return {
-    ...rest,
-    data,
-    fancyData,
-    // we can rename properties for convenience too
-    todoList: state
-  }
+export const useTodos = defineQuery({
+  key: ['todos'],
+  query: () => fetch('http://localhost:3000/todos').then((res) => res.json())
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // query: () => [

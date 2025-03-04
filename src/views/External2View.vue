@@ -10,8 +10,7 @@
       Oops, an error happened...
     </div>
 
-<!--    <pre >{{ data }}</pre>-->
-    <pre >{{ fancyData }}</pre>
+    <pre >{{ data }}</pre>
 
     <q-btn @click="refresh">Action</q-btn>
   </q-page>
@@ -20,5 +19,5 @@
 <script setup lang="ts">
 import { useTodos } from '@/queries/todos.ts'
 
-const { isLoading, error, refresh, fancyData, data } = useTodos()
+const { isLoading, error, refresh, data } = useTodos()
 </script>

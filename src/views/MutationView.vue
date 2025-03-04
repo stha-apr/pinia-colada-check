@@ -26,13 +26,11 @@
       />
       <q-btn
         @click="mutate"
-        :disable="asyncStatus === 'loading'"
-        :loading="asyncStatus === 'loading'"
+        :disable="isSaving"
+        :loading="isSaving"
         label="Add"
       />
     </div>
-    Status: {{ status }}
-    asyncStatus: {{ asyncStatus }}
   </q-page>
 </template>
 
@@ -45,14 +43,13 @@ const { data, isLoading, error, refetch } = useTodos()
 
 const todoText = ref<string>('')
 
-const { mutate, status, asyncStatus } = useMutation({
+const { mutate, isLoading: isSaving } = useMutation({
   mutation: () =>
     fetch('http://localhost:3000/todos', {
       method: 'POST',
       body: JSON.stringify({ content: todoText.value })
     }),
   onSettled: () => {
-    // refetch()
     queryCache.invalidateQueries({ key: ['todos'] })
     todoText.value = ''
   }
