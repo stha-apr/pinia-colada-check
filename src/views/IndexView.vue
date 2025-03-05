@@ -6,7 +6,7 @@
       Apollo-Client
     </h5>
     <h5>
-      VueQuery (Tanstack-Query)
+      VueQuery, ReactQuery (Tanstack-Query)
     </h5>
     <h5>
       Pinia Colada 🍍

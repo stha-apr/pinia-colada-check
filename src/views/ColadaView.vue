@@ -12,16 +12,17 @@
 
     <pre >{{ data }}</pre>
 
-    <q-btn @click="">Action</q-btn>
+    <q-btn @click="refetch">Action</q-btn>
   </q-page>
 </template>
 
 <script setup lang="ts">
 import { useQuery } from '@pinia/colada'
 
-const { data, isLoading, error } = useQuery({
+const { data, isLoading, error, refresh, refetch } = useQuery({
   key: ['my-query'],
-  query: () => fetch('http://localhost:3000/todos').then(res => res.json()),
+  query: () =>  fetch('http://localhost:3000/todos').then(res => res.json()),
+  staleTime: 3 * 1000
 })
 
 </script>

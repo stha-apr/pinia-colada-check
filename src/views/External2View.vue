@@ -2,22 +2,18 @@
   <q-page padding>
     <h2>Pinia Colada - External 2 🍍</h2>
 
-    <div v-if="isLoading">
-      Loading...
-    </div>
+    <DemoDrawer
+      v-if="isShowing"
+    />
 
-    <div v-else-if="error">
-      Oops, an error happened...
-    </div>
-
-    <pre >{{ data }}</pre>
-
-    <q-btn @click="refresh">Action</q-btn>
+    <q-btn @click="isShowing = !isShowing">Show Drawer</q-btn>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { useTodos } from '@/queries/todos.ts'
+import DemoDrawer from '@/components/DemoDrawer.vue'
+import { ref } from 'vue'
 
-const { isLoading, error, refresh, data } = useTodos()
+const isShowing = ref(false)
+
 </script>

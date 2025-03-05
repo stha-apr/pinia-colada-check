@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import IndexView from '@/views/IndexView.vue'
 import StandardView from '@/views/StandardView.vue'
-import Colada1View from '@/views/Colada1View.vue'
+import ColadaView from '@/views/ColadaView.vue'
 import External1View from '@/views/External1View.vue'
 import External2View from '@/views/External2View.vue'
 import MutationView from '@/views/MutationView.vue'
@@ -22,7 +22,7 @@ const router = createRouter({
     {
       path: '/colada',
       name: 'colada',
-      component: Colada1View,
+      component: ColadaView,
     },
     {
       path: '/external-one',

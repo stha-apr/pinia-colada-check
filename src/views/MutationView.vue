@@ -37,9 +37,10 @@
 <script setup lang="ts">
 import { useTodos } from '@/queries/todos.ts'
 import { ref } from 'vue'
+const { data, isLoading, error } = useTodos()
+
 import { useMutation, useQueryCache } from '@pinia/colada'
 const queryCache = useQueryCache()
-const { data, isLoading, error } = useTodos()
 
 const todoText = ref<string>('')
 
@@ -53,5 +54,7 @@ const { mutate, isLoading: isSaving } = useMutation({
     queryCache.invalidateQueries({ key: ['todos'] })
     todoText.value = ''
   }
+
+
 })
 </script>

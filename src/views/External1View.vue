@@ -12,12 +12,12 @@
 
     <pre v-else>{{ data }}</pre>
 
-    <q-btn @click="refresh">Action</q-btn>
+    <q-btn @click="">Action</q-btn>
   </q-page>
 </template>
 
 <script setup lang="ts">
 import { useTodos } from '@/queries/todos.ts'
 
-const { data, isLoading, error, refresh } = useTodos()
+const { data, isLoading, error } = useTodos()
 </script>
