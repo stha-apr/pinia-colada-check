@@ -1,8 +1,8 @@
 export function fromDTO(fromDTO) {
   return {
     ...fromDTO,
-    dies: fromDTO.content + " das ist jetzt ja wilrklich",
+    extra: fromDTO.content + " - mit zusätzlichem Text",
     active: false,
-    content: fromDTO.content + ' ach was'
+    content: fromDTO.content + ' - bitte erledigen!'
   }
 }
